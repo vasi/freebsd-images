@@ -1,6 +1,6 @@
 # This is the pkgbase repository URL which is inserted into the image as
 # /usr/local/etc/pkg/repos/FreeBSD.conf
-: ${REPO_IMAGE_URL:=pkg+https://pkg.freebsd.org}
+: ${REPO_IMAGE_URL:=http://10.88.0.1:8001/pkgbase}
 
 # This is the pkgbase repository URL which is used as source for the packages
 # installed into the image. This is typically the same as the image url (see -R

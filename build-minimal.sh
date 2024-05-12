@@ -12,7 +12,8 @@ fixup() {
     t=$(mktemp)
     cat > $t <<EOF
 FreeBSD: {
-  url: "pkg+http://pkg.FreeBSD.org/\${ABI}/latest",
+  url: "http://10.88.0.1:8001/poudriere/packages"
+  signature_type: "none"
 }
 EOF
     mv $t $m/usr/local/etc/pkg/repos/FreeBSD.conf
@@ -20,7 +21,7 @@ EOF
     echo Bootstrap package management
     # bootstrap before installing the config for FreeBSD-base, otherwise
     # it will attempt to install pkg from FreeBSD-base instead of FreeBSD.
-    buildah run $c pkg -y bootstrap
+    buildah run $c env PACKAGESITE=http://10.88.0.1:8001/poudriere/packages SIGNATURE_TYPE=none pkg -y bootstrap
     rm $m/usr/local/sbin/pkg-static.pkgsave
     strip $m/usr/local/sbin/pkg-static
 

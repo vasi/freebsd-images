@@ -1,7 +1,7 @@
 #! /bin/sh
 
 : ${PKG:=pkg}
-ARCHES="amd64 aarch64"
+ARCHES="amd64"
 BUILD=no
 PUSH=no
 
